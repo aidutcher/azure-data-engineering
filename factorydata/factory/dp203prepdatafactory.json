@@ -1,0 +1,9 @@
+{
+	"name": "dp203prepdatafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7dd10d98-961c-4de5-b9ce-3c5f4935f673",
+		"tenantId": "a97a52fb-2d36-4070-845a-764ae5ab85e5"
+	}
+}
