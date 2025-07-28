@@ -1,1 +1,30 @@
 .env
+reference-links.txt
+
+# Terraform state files
+terraform/*.tfstate
+terraform/*.tfstate.*
+
+# Local Terraform directories
+terraform/.terraform/*
+
+# Sensitive variable files
+terraform/*.tfvars
+terraform/*.tfvars.json
+
+# Terraform CLI configuration files
+terraform/.terraformrc
+terraform/terraform.rc
+
+# Saved plan files
+terraform/*.plan
+
+# Crash log files
+terraform/crash.log
+terraform/crash.*.log
+
+# Override files (if not intended for version control)
+terraform/override.tf
+terraform/override.tf.json
+terraform/*_override.tf
+terraform/*_override.tf.json
