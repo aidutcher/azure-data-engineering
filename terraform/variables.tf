@@ -17,3 +17,8 @@ variable "general_storage_account_prefix" {
   description = "Prefix for ADLS storage account for general object storage"
   default = "devadls"
 }
+
+variable "adf_prefix" {
+  description = "Prefix for the ADF instance name"
+  default = "dev-adf-"
+}

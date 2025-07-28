@@ -41,7 +41,7 @@ resource "azurerm_virtual_network" "vnet" {
 }
 
 # Generate random value for the storage account name
-resource "random_string" "general_storage_account_suffix" {
+resource "random_string" "random_suffix" {
   length  = 8
   lower   = true
   numeric = false
@@ -52,7 +52,7 @@ resource "random_string" "general_storage_account_suffix" {
 # Create an ADLS Gen2 storage account
 # Using cool access tier and locally redundant storage for cost control
 resource "azurerm_storage_account" "adls" {
-  name                     = "${var.general_storage_account_prefix}${random_string.general_storage_account_suffix.result}"
+  name                     = "${var.general_storage_account_prefix}${random_string.random_suffix.result}"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = var.deployment_location
   account_tier             = "Standard"
@@ -62,4 +62,10 @@ resource "azurerm_storage_account" "adls" {
   tags = {
     environment = "dev"
   }
+}
+
+resource "azurerm_data_factory" "adf" {
+  name                = "${var.adf_prefix}${random_string.random_suffix.result}"
+  location            = var.deployment_location
+  resource_group_name = azurerm_resource_group.rg.name
 }
