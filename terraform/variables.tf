@@ -13,7 +13,7 @@ variable "virtual_network_name" {
   default = "dev-vnet"
 }
 
-variable "general_storage_account_name" {
-  description = "ADLS storage account for general object storage"
-  default = "dev-adls"
+variable "general_storage_account_prefix" {
+  description = "Prefix for ADLS storage account for general object storage"
+  default = "devadls"
 }
