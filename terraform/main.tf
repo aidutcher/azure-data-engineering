@@ -64,6 +64,12 @@ resource "azurerm_storage_account" "adls" {
   }
 }
 
+resource "azurerm_storage_container" "raw" {
+  name                  = "raw"
+  storage_account_name    = azurerm_storage_account.adls.name
+  container_access_type = "private"
+}
+
 resource "azurerm_data_factory" "adf" {
   name                = "${var.adf_prefix}${random_string.random_suffix.result}"
   location            = var.deployment_location
