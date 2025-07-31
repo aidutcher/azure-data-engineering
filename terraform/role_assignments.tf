@@ -30,7 +30,7 @@ resource "azurerm_role_assignment" "sp_storage_blob_contributor" {
   scope                = azurerm_storage_account.adls.id
   role_definition_name = "Storage Blob Data Contributor"
   principal_id         = azurerm_user_assigned_identity.primary_service_principal.principal_id
-}s
+}
 
 resource "azurerm_role_assignment" "sp_storage_queue_contributor" {
   scope                = azurerm_storage_account.adls.id
