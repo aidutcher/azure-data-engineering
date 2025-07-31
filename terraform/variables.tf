@@ -22,3 +22,15 @@ variable "adf_prefix" {
   description = "Prefix for the ADF instance name"
   default = "dev-adf-"
 }
+
+variable "adf_github_account_name" {
+  description = "Name of the GitHub account associated with the ADF instance"
+}
+
+variable "adf_github_url" {
+  description = "URL for GitHub account associated with ADF instance"
+}
+
+variable "adf_github_repo_name" {
+  description = "Repository name associated with ADF instance"
+}
