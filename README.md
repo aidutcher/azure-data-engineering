@@ -16,6 +16,8 @@ Install [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cl
 
 ### Project Setup
 
+# tfvars
+
 The Terraform configurations in this project refer to a number of environment variables which store account details.  
 Create a terraform.tfvars file in the Terraform root module (just inside the terraform folder) containing the values below.  
 Ensure that tfvars files are in the .gitignore file.    
@@ -26,6 +28,13 @@ This requires the following attributes as referenced in /terraform/adf.tf:
 - adf_github_account_name="accountname" --> This is the name of the GitHub account that should be associated with the ADF instance. Replace accountname with your desired account.
 - adf_github_repo="repository-name" --> This is the repo associated with the ADF instance. Replace repository-name with your desired repo.
 - adf_github_url="https://github.com/accountname/repository-name.git" --> This is the URL for the above repo. Replace the URL with the URL for your desired repo. 
+
+# variables.tf
+
+In addition to tfvars values, the values in the /terraform/variables.tf file determine the names of various resources, as well as the region used for deployment.  
+You'll want to update these values to your preferred region and resource names.  
+
+***
 
 ### Post-Deployment Setup
 
