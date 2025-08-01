@@ -10,3 +10,10 @@ resource "azurerm_data_factory" "adf" {
     root_folder     = "adf"
   }
 }
+
+resource "azurerm_data_factory_linked_service_data_lake_storage_gen2" "adls-linked-service" {
+  name                = "LS_ADLS"
+  data_factory_id     = azurerm_data_factory.adf.id
+  storage_account_key = azurerm_storage_account.adls.primary_access_key
+  url                 = azurerm_storage_account.adls.primary_dfs_endpoint
+}
