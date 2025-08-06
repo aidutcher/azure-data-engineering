@@ -26,6 +26,13 @@ resource "azurerm_role_assignment" "sp_subscription_contributor" {
   principal_id         = azurerm_user_assigned_identity.primary_service_principal.principal_id
 }
 
+resource "azurerm_role_assignment" "sp_storage_eventgrid_event_contributor" {
+  scope                = azurerm_resource_group.rg.id
+  role_definition_name = "EventGrid EventSubscription Contributor"
+  principal_id         = azurerm_user_assigned_identity.primary_service_principal.principal_id
+}
+
+
 resource "azurerm_role_assignment" "sp_storage_blob_contributor" {
   scope                = azurerm_storage_account.adls.id
   role_definition_name = "Storage Blob Data Contributor"
@@ -38,8 +45,15 @@ resource "azurerm_role_assignment" "sp_storage_queue_contributor" {
   principal_id         = azurerm_user_assigned_identity.primary_service_principal.principal_id
 }
 
-resource "azurerm_role_assignment" "sp_storage_eventgrid_event_contributor" {
-  scope                = azurerm_resource_group.rg.id
-  role_definition_name = "EventGrid EventSubscription Contributor"
+
+resource "azurerm_role_assignment" "sp_uc_storage_blob_contributor" {
+  scope                = azurerm_storage_account.uc_storage.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_user_assigned_identity.primary_service_principal.principal_id
+}
+
+resource "azurerm_role_assignment" "sp_uc_storage_queue_contributor" {
+  scope                = azurerm_storage_account.uc_storage.id
+  role_definition_name = "Storage Queue Data Contributor"
   principal_id         = azurerm_user_assigned_identity.primary_service_principal.principal_id
 }

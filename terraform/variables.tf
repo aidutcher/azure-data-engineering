@@ -18,6 +18,12 @@ variable "general_storage_account_prefix" {
   default = "devadls"
 }
 
+variable "uc_storage_account_prefix" {
+  description = "Prefix for ADLS storage account for Unity Catalog"
+  default = "devuc"
+}
+
+
 variable "adf_prefix" {
   description = "Prefix for the ADF instance name"
   default = "dev-adf-"
