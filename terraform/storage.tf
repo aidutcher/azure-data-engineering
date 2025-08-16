@@ -1,7 +1,7 @@
 # Create an ADLS Gen2 storage account with raw and transformed containers
 # Using cool access tier and locally redundant storage for cost control
 resource "azurerm_storage_account" "adls" {
-  name                     = "${var.general_storage_account_prefix}${random_string.random_suffix.result}"
+  name                     = "${var.env}${var.general_storage_account_prefix}${random_string.random_suffix.result}"
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = var.deployment_location
   account_tier             = "Standard"
@@ -9,7 +9,7 @@ resource "azurerm_storage_account" "adls" {
   account_replication_type = "LRS"
 
   tags = {
-    environment = "dev"
+    environment = var.env
   }
 }
 
@@ -34,7 +34,7 @@ resource "azurerm_storage_account" "uc_storage" {
   account_replication_type = "LRS"
 
   tags = {
-    environment = "dev"
+    environment = var.env
   }
 }
 

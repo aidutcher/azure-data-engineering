@@ -1,3 +1,8 @@
+variable "env" {
+  description = "Environment in which to deploy resources (dev, test, or prod)"
+  default = "dev"
+}
+
 variable "deployment_location" {
   description = "Region in which to deploy resources"
   default = "westus2"
@@ -5,28 +10,28 @@ variable "deployment_location" {
 
 variable "resource_group_name" {
   description = "Name of resource group containing project resources"
-  default = "dev-rg"
+  default = "-rg"
 }
 
 variable "virtual_network_name" {
   description = "Name of virtual network"
-  default = "dev-vnet"
+  default = "-vnet"
 }
 
 variable "general_storage_account_prefix" {
   description = "Prefix for ADLS storage account for general object storage"
-  default = "devadls"
+  default = "adls"
 }
 
 variable "uc_storage_account_prefix" {
   description = "Prefix for ADLS storage account for Unity Catalog"
-  default = "devuc"
+  default = "uc"
 }
 
 
 variable "adf_prefix" {
   description = "Prefix for the ADF instance name"
-  default = "dev-adf-"
+  default = "-adf-"
 }
 
 variable "adf_github_account_name" {
