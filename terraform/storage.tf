@@ -7,6 +7,7 @@ resource "azurerm_storage_account" "adls" {
   account_tier             = "Standard"
   access_tier              = "Cool"
   account_replication_type = "LRS"
+  is_hns_enabled           = true
 
   tags = {
     environment = var.env
@@ -37,12 +38,6 @@ resource "azurerm_storage_account" "uc_storage" {
   tags = {
     environment = var.env
   }
-}
-
-resource "azurerm_storage_container" "uc_metastore" {
-  name                  = "metastore"
-  storage_account_id    = azurerm_storage_account.uc_storage.id
-  container_access_type = "private"
 }
 
 resource "azurerm_storage_container" "uc_bronze" {

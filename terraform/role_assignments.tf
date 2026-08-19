@@ -58,40 +58,40 @@ resource "azurerm_role_assignment" "sp_uc_storage_queue_contributor" {
   principal_id         = azurerm_user_assigned_identity.primary_service_principal.principal_id
 }
 
-# resource "azurerm_role_assignment" "ac_subscription_contributor" {
-#   scope                = data.azurerm_subscription.primary.id
-#   role_definition_name = "Contributor"
-#   principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
-# }
+resource "azurerm_role_assignment" "ac_subscription_contributor" {
+  scope                = data.azurerm_subscription.primary.id
+  role_definition_name = "Contributor"
+  principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
+}
 
-# resource "azurerm_role_assignment" "ac_storage_eventgrid_event_contributor" {
-#   scope                = azurerm_resource_group.rg.id
-#   role_definition_name = "EventGrid EventSubscription Contributor"
-#   principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
-# }
-
-
-# resource "azurerm_role_assignment" "ac_storage_blob_contributor" {
-#   scope                = azurerm_storage_account.adls.id
-#   role_definition_name = "Storage Blob Data Contributor"
-#   principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
-# }
-
-# resource "azurerm_role_assignment" "ac_storage_queue_contributor" {
-#   scope                = azurerm_storage_account.adls.id
-#   role_definition_name = "Storage Queue Data Contributor"
-#   principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
-# }
+resource "azurerm_role_assignment" "ac_storage_eventgrid_event_contributor" {
+  scope                = azurerm_resource_group.rg.id
+  role_definition_name = "EventGrid EventSubscription Contributor"
+  principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
+}
 
 
-# resource "azurerm_role_assignment" "ac_uc_storage_blob_contributor" {
-#   scope                = azurerm_storage_account.uc_storage.id
-#   role_definition_name = "Storage Blob Data Contributor"
-#   principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
-# }
+resource "azurerm_role_assignment" "ac_storage_blob_contributor" {
+  scope                = azurerm_storage_account.adls.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
+}
 
-# resource "azurerm_role_assignment" "ac_uc_storage_queue_contributor" {
-#   scope                = azurerm_storage_account.uc_storage.id
-#   role_definition_name = "Storage Queue Data Contributor"
-#   principal_id         = azurerm_databricks_access_connector.databricks_connector.principal_id
-# }
+resource "azurerm_role_assignment" "ac_storage_queue_contributor" {
+  scope                = azurerm_storage_account.adls.id
+  role_definition_name = "Storage Queue Data Contributor"
+  principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
+}
+
+
+resource "azurerm_role_assignment" "ac_uc_storage_blob_contributor" {
+  scope                = azurerm_storage_account.uc_storage.id
+  role_definition_name = "Storage Blob Data Contributor"
+  principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
+}
+
+resource "azurerm_role_assignment" "ac_uc_storage_queue_contributor" {
+  scope                = azurerm_storage_account.uc_storage.id
+  role_definition_name = "Storage Queue Data Contributor"
+  principal_id         = azurerm_databricks_access_connector.databricks_connector.identity[0].principal_id
+}
