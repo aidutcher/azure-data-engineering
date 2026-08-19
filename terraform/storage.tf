@@ -7,6 +7,7 @@ resource "azurerm_storage_account" "adls" {
   account_tier             = "Standard"
   access_tier              = "Cool"
   account_replication_type = "LRS"
+  is_hns_enabled           = true
 
   tags = {
     environment = var.env
@@ -15,13 +16,13 @@ resource "azurerm_storage_account" "adls" {
 
 resource "azurerm_storage_container" "raw" {
   name                  = "raw"
-  storage_account_name    = azurerm_storage_account.adls.name
+  storage_account_id    = azurerm_storage_account.adls.id
   container_access_type = "private"
 }
 
 resource "azurerm_storage_container" "transformed" {
   name                  = "transformed"
-  storage_account_name    = azurerm_storage_account.adls.name
+  storage_account_id    = azurerm_storage_account.adls.id
   container_access_type = "private"
 }
 
@@ -32,6 +33,7 @@ resource "azurerm_storage_account" "uc_storage" {
   account_tier             = "Standard"
   access_tier              = "Hot"
   account_replication_type = "LRS"
+  is_hns_enabled           = true
 
   tags = {
     environment = var.env
@@ -40,18 +42,18 @@ resource "azurerm_storage_account" "uc_storage" {
 
 resource "azurerm_storage_container" "uc_bronze" {
   name                  = "bronze"
-  storage_account_name    = azurerm_storage_account.uc_storage.name
+  storage_account_id    = azurerm_storage_account.uc_storage.id
   container_access_type = "private"
 }
 
 resource "azurerm_storage_container" "uc_silver" {
   name                  = "silver"
-  storage_account_name    = azurerm_storage_account.uc_storage.name
+  storage_account_id    = azurerm_storage_account.uc_storage.id
   container_access_type = "private"
 }
 
 resource "azurerm_storage_container" "uc_gold" {
   name                  = "gold"
-  storage_account_name    = azurerm_storage_account.uc_storage.name
+  storage_account_id    = azurerm_storage_account.uc_storage.id
   container_access_type = "private"
 }
