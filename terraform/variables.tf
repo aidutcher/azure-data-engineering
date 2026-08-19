@@ -1,3 +1,8 @@
+variable "azure_tenant_id" {
+  description = "Tenant ID for Azure account"
+  sensitive = true
+}
+
 variable "env" {
   description = "Environment in which to deploy resources (dev, test, or prod)"
   default = "dev"
@@ -28,6 +33,10 @@ variable "uc_storage_account_prefix" {
   default = "uc"
 }
 
+variable "general_key_vault_prefix" {
+  description = "Prefix for Key Vaults"
+  default = "-kv-"
+}
 
 variable "adf_prefix" {
   description = "Prefix for the ADF instance name"
