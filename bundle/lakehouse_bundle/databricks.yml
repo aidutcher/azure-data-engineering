@@ -33,7 +33,6 @@ targets:
     mode: production
     workspace:
       host: # TODO: figure out how to capture the workspace URL from Terraform output
-      # We explicitly deploy to /Workspace/Users/aidutcher@yahoo.com to make sure we only have a single copy.
       root_path: 
     variables:
       catalog: bronze
